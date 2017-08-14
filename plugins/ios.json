@@ -1,0 +1,33 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "br.com.agrodados.mobile"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "br.com.agrodados.mobile"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "br.com.agrodados.mobile"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "br.com.agrodados.mobile"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "br.com.agrodados.mobile"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "br.com.agrodados.mobile"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "br.com.agrodados.mobile"
+        }
+    },
+    "dependent_plugins": {}
+}

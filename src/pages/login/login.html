@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>AgroDados - Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding="true" class="has-header">
+  <form id="agrodadosLogin-form1" class="list">
+    <ion-list id="agrodadosLogin-list4">
+      <label class="item item-input" id="agrodadosLogin-input1">
+        <span class="input-label">Login</span>
+        <input type="email" placeholder="">
+      </label>
+      <label class="item item-input" id="agrodadosLogin-input2">
+        <span class="input-label">Senha</span>
+        <input type="password" placeholder="">
+      </label>
+    </ion-list>
+    <ion-toggle toggle-class="toggle-positive" ng-checked="true" id="agrodadosLogin-toggle1">Guardar Senha</ion-toggle>
+    <div class="spacer" style="height: 40px;"></div>
+    <a ui-sref="login.logar()" id="agrodadosLogin-button1" class="button button-stable button-block">Logar</a>
+    <a ui-sref="login.registrarSe()" id="agrodadosLogin-button2" class="button button-positive button-block button-clear">Ou criar uma conta</a>
+  </form>
+</ion-content>

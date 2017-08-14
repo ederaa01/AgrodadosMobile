@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Clientes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-sliding ngFor="#item of listCliente">
+      <ion-item (click)="edit(item)">
+        <!-- {{item.nmCliente}} -->
+      </ion-item>
+
+      <ion-item-options>
+        <button danger (click)="delete(item)">Excluir</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <button fab fab-bottom fab-right danger (click)="insert()"><ion-icon name="add"></ion-icon></button>
+</ion-content>
