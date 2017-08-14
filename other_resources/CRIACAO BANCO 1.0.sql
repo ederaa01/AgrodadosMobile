@@ -1,0 +1,358 @@
+CREATE TABLE Cliente (
+  idCliente INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  idSistema INTEGER UNSIGNED NOT NULL,
+  nmCliente VARCHAR(100) NULL,
+  CpfCnpj VARCHAR(14) NULL,
+  email VARCHAR(300) NULL,
+  telefone VARCHAR(24) NULL,
+  observacao VARCHAR(500) NULL,
+  situacao INTEGER UNSIGNED NULL,
+  idWs INTEGER UNSIGNED NULL,
+  idErp VARCHAR(30) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idCliente, idSistema),
+);
+
+CREATE TABLE Combustivel (
+  idCombustivel INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  idWs INTEGER UNSIGNED NULL,
+  idErp VARCHAR(30) NULL,
+  dsCombustivel VARCHAR(100) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idCombustivel)
+);
+
+CREATE TABLE CombustivelVeiculo (
+  dCombustivel INTEGER UNSIGNED NOT NULL,
+  idVeiculo INTEGER UNSIGNED NOT NULL,
+  idWsVeiculo INTEGER UNSIGNED NULL,
+  idWsCombustivel INTEGER UNSIGNED NULL,
+  idErpVeiculo VARCHAR(30) NULL,
+  idErpCombustivel VARCHAR(30) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(dCombustivel, idVeiculo),
+);
+
+CREATE TABLE CondPagamento (
+  idCondPagamento INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  idSistema INTEGER UNSIGNED NOT NULL,
+  dsCondPagamento VARCHAR(100) NULL,
+  qtVezes INTEGER UNSIGNED NULL,
+  carencia INTEGER UNSIGNED NULL,
+  intervalo INTEGER UNSIGNED NULL,
+  idWs INTEGER UNSIGNED NULL,
+  idErp VARCHAR(30) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idCondPagamento, idSistema),
+);
+
+CREATE TABLE Configuracao (
+  idConfig INTEGER UNSIGNED NOT NULL,
+  idSistema INTEGER UNSIGNED NOT NULL,
+  InWiFi BOOL NULL,
+  InSincAutomatico BOOL NULL,
+  urlServidor VARCHAR(100) NULL,
+  idErp INTEGER UNSIGNED NULL,
+  idWs INTEGER UNSIGNED NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idConfig, idSistema),
+);
+
+CREATE TABLE Endereco (
+  idEndereco INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  idCliente INTEGER UNSIGNED NOT NULL,
+  idSistema INTEGER UNSIGNED NOT NULL,
+  nmEndereco VARCHAR(100) NULL,
+  endereco VARCHAR(100) NULL,
+  bairro VARCHAR(100) NULL,
+  numero INTEGER UNSIGNED NULL,
+  ie VARCHAR(24) NULL,
+  cep VARCHAR NULL,
+  situacao INTEGER UNSIGNED NULL,
+  idErp VARCHAR(30) NULL,
+  idWs INTEGER UNSIGNED NULL,
+  idWsCliente INTEGER UNSIGNED NULL,
+  idErpCliente VARCHAR(30) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idEndereco, idCliente, idSistema),
+);
+
+CREATE TABLE Frota (
+  idFrota INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  idWs INTEGER UNSIGNED NULL,
+  idErp VARCHAR(30) NULL,
+  dsFrota VARCHAR(100) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idFrota)
+);
+
+CREATE TABLE Item (
+  id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  idSistema INTEGER UNSIGNED NOT NULL,
+  idVariedade INTEGER UNSIGNED NOT NULL,
+  id2 VARCHAR(25) NULL,
+  dsItem VARCHAR(80) NULL,
+  isServico INT(1) NULL,
+  sldEstoque NUMERIC(10,3) NULL,
+  idWs INTEGER UNSIGNED NULL,
+  idErp VARCHAR(30) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(id, idSistema),
+);
+
+CREATE TABLE ItemTabelaPreco (
+  idTabelaPreco INTEGER UNSIGNED NOT NULL,
+  idItem INTEGER UNSIGNED NOT NULL,
+  idSistema INTEGER UNSIGNED NOT NULL,
+  valor NUMERIC(10,2) NULL,
+  idWsItem INTEGER UNSIGNED NULL,
+  idErpItem VARCHAR(30) NULL,
+  idWsTabelaPreco INTEGER UNSIGNED NULL,
+  idErpTabelaPreco VARCHAR(30) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idTabelaPreco, idItem, idSistema),
+);
+
+CREATE TABLE Modulo (
+  idModulo INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  idWs INTEGER UNSIGNED NULL,
+  dsModulo VARCHAR(100) NULL,
+  tpModulo INTEGER UNSIGNED NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idModulo)
+);
+
+CREATE TABLE Pedido (
+  idPedido INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  idSistema INTEGER UNSIGNED NOT NULL,
+  idRepresentada INTEGER UNSIGNED NOT NULL,
+  idCondPagamento INTEGER UNSIGNED NOT NULL,
+  idCliente INTEGER UNSIGNED NOT NULL,
+  idTabelaPreco INTEGER UNSIGNED NULL,
+  idVisita INTEGER UNSIGNED NULL,
+  vlBruto NUMERIC(10,2) NULL,
+  vlDesconto NUMERIC(10,2) NULL,
+  vlLiquido NUMERIC(10,2) NULL,
+  dataPedido DATE NULL,
+  dataLiberacao DATE NULL,
+  situacao INTEGER UNSIGNED NULL,
+  nmCliente VARCHAR(100) NULL,
+  nmEndereco VARCHAR(100) NULL,
+  endereco VARCHAR(100) NULL,
+  bairro VARCHAR(100) NULL,
+  numero VARCHAR(100) NULL,
+  dsTalhao VARCHAR(100) NULL,
+  idEndereco INTEGER UNSIGNED NULL,
+  idTalhao INTEGER UNSIGNED NULL,
+  dsCondPagamento VARCHAR(100) NULL,
+  idWs INTEGER UNSIGNED NULL,
+  idErp VARCHAR(30) NULL,
+  idWsVisita INTEGER UNSIGNED NULL,
+  idErpVisita VARCHAR(30) NULL,
+  idWsCliente INTEGER UNSIGNED NULL,
+  idErpCliente VARCHAR(30) NULL,
+  idWsCondPagto INTEGER UNSIGNED NULL,
+  idErpCondPagto VARCHAR(30) NULL,
+  idWsRepresentada INTEGER UNSIGNED NULL,
+  idErpRepresentada VARCHAR(30) NULL,
+  idWsTabelaPreco INTEGER UNSIGNED NULL,
+  idErpTabelaPreco VARCHAR(30) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idPedido, idSistema, idRepresentada),
+);
+
+CREATE TABLE PedidoItem (
+  idPedido INTEGER UNSIGNED NOT NULL,
+  idSistema INTEGER UNSIGNED NOT NULL,
+  idItem INTEGER UNSIGNED NOT NULL,
+  idRepresentada INTEGER UNSIGNED NOT NULL,
+  quantidade NUMERIC(10,2) NULL,
+  vlUnitario NUMERIC(10,2) NULL,
+  vlTotal NUMERIC(10,2) NULL,
+  vlDesconto NUMERIC(10,2) NULL,
+  idWsItem INTEGER UNSIGNED NULL,
+  idErpItem VARCHAR(30) NULL,
+  idWsPedido INTEGER UNSIGNED NULL,
+  idErpPedido VARCHAR(30) NULL,
+  idWsRepresentada INTEGER UNSIGNED NULL,
+  idErpRepresentada VARCHAR(30) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idPedido, idSistema, idItem, idRepresentada),
+);
+
+CREATE TABLE Representada (
+  idRepresentada INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  idSistema INTEGER UNSIGNED NOT NULL,
+  idWs VARCHAR(20) NULL,
+  idErp VARCHAR(30) NULL,
+  nmRepresentada VARCHAR(200) NULL,
+  nmRazaoSocila VARCHAR(200) NULL,
+  cpfCnpj VARCHAR(14) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idRepresentada, idSistema),
+);
+
+CREATE TABLE RepresentadaUser (
+  idSistema INTEGER UNSIGNED NOT NULL,
+  idRepresentada INTEGER UNSIGNED NOT NULL,
+  idUsuario INTEGER UNSIGNED NOT NULL,
+  inSituacao INTEGER UNSIGNED NULL,
+  idWsRepresentada INTEGER UNSIGNED NULL,
+  idErpRepresentada VARCHAR(30) NULL,
+  idWsUser INTEGER UNSIGNED NULL,
+  idErpUser VARCHAR(30) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idSistema, idRepresentada, idUsuario),
+);
+
+CREATE TABLE Sistema (
+  idSistema INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  idWs INTEGER UNSIGNED NULL,
+  descricao VARCHAR(100) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idSistema)
+);
+
+CREATE TABLE SistemaModulo (
+  idSistema INTEGER UNSIGNED NOT NULL,
+  idModulo INTEGER UNSIGNED NOT NULL,
+  idWs INTEGER UNSIGNED NULL,
+  dataVencimento DATE NULL,
+  inSituacao INTEGER UNSIGNED NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idSistema, idModulo),
+);
+
+CREATE TABLE TabelaPreco (
+  idTabelaPreco INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  idSistema INTEGER UNSIGNED NOT NULL,
+  dsTabelaPreco VARCHAR(100) NULL,
+  idWs INTEGER UNSIGNED NULL,
+  idErp VARCHAR(30) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idTabelaPreco, idSistema),
+);
+
+CREATE TABLE Talhao (
+  idTalhao INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  idCliente INTEGER UNSIGNED NOT NULL,
+  idEndereco INTEGER UNSIGNED NOT NULL,
+  idSistema INTEGER UNSIGNED NOT NULL,
+  dsTalhao VARCHAR(100) NULL,
+  idErpCliente VARCHAR(30) NULL,
+  idWsCliente INTEGER UNSIGNED NULL,
+  idWsEndereco INTEGER UNSIGNED NULL,
+  idErpEndereco VARCHAR(30) NULL,
+  idWs INTEGER UNSIGNED NULL,
+  idErp VARCHAR(30) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idTalhao, idCliente, idEndereco, idSistema),
+);
+
+CREATE TABLE UserApp (
+  id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  idSistema INTEGER UNSIGNED NOT NULL,
+  Vendedor_idVendedor INTEGER UNSIGNED NOT NULL,
+  dsLogin VARCHAR(50) NULL,
+  dsSenha VARCHAR(255) NULL,
+  tpUsuario INTEGER UNSIGNED NULL,
+  idWs INTEGER UNSIGNED NULL,
+  idErp VARCHAR(30) NULL,
+  idWsVendedor INTEGER UNSIGNED NULL,
+  idErpVendedor VARCHAR(30) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(id, idSistema),
+);
+
+CREATE TABLE Variedade (
+  idVariedade INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  dsVariedade VARCHAR(100) NULL,
+  idWs INTEGER UNSIGNED NULL,
+  idErp VARCHAR(30) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idVariedade)
+);
+
+CREATE TABLE Veiculo (
+  idVeiculo INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  idFrota INTEGER UNSIGNED NOT NULL,
+  idWs INTEGER UNSIGNED NULL,
+  idErp VARCHAR(30) NULL,
+  dsVeiculo VARCHAR(100) NULL,
+  placa INTEGER UNSIGNED NULL,
+  ano INTEGER UNSIGNED NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idVeiculo),
+);
+
+CREATE TABLE VeiculoEventos (
+  idEventos INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  idVeiculo INTEGER UNSIGNED NOT NULL,
+  idCombustivel INTEGER UNSIGNED NULL,
+  idWs INTEGER UNSIGNED NULL,
+  idErp VARCHAR(30) NULL,
+  tpEvento INTEGER UNSIGNED NULL,
+  km NUMERIC(10,2) NULL,
+  idWsVeiculo INTEGER UNSIGNED NULL,
+  idWsCombustivel INTEGER UNSIGNED NULL,
+  idErpVeiculo VARCHAR(30) NULL,
+  idErpCombustivel VARCHAR(30) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idEventos, idVeiculo),
+);
+
+CREATE TABLE Vendedor (
+  idVendedor INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  nmVendedor VARCHAR(60) NULL,
+  cpfCnpj VARCHAR(14) NULL,
+  rg VARCHAR(20) NULL,
+  ie VARCHAR(20) NULL,
+  dsEmail VARCHAR(60) NOT NULL,
+  dtCadastro DATE NOT NULL,
+  idWs INTEGER UNSIGNED NULL,
+  idErp VARCHAR(30) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idVendedor)
+);
+
+CREATE TABLE VendedorCliente (
+  idCliente INTEGER UNSIGNED NOT NULL,
+  idVendedor INTEGER UNSIGNED NOT NULL,
+  idSistema INTEGER UNSIGNED NOT NULL,
+  inSituacao INTEGER UNSIGNED NULL,
+  idWsVendedor INTEGER UNSIGNED NULL,
+  idErpVendedor VARCHAR(30) NULL,
+  idWsCliente INTEGER UNSIGNED NULL,
+  idErpCliente VARCHAR(30) NULL,
+  hasCode VARCHAR(30) NULL,
+  PRIMARY KEY(idCliente, idVendedor, idSistema),
+);
+
+CREATE TABLE Visita (
+  idVisita INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  idSistema INTEGER UNSIGNED NOT NULL,
+  idRepresentada INTEGER UNSIGNED NOT NULL,
+  idVeiculo INTEGER UNSIGNED NOT NULL,
+  idCliente INTEGER UNSIGNED NOT NULL,
+  idEventos INTEGER UNSIGNED NOT NULL,
+  cdCliente INTEGER UNSIGNED NULL,
+  nmCliente VARCHAR(100) NULL,
+  cdCultura INTEGER UNSIGNED NULL,
+  dsCultura VARCHAR(100) NULL,
+  cdPropriedade INTEGER UNSIGNED NULL,
+  nmPropriedade VARCHAR NULL,
+  dataVisita DATE NULL,
+  latitude INTEGER UNSIGNED NULL,
+  longitude INTEGER UNSIGNED NULL,
+  idWs INTEGER UNSIGNED NULL,
+  idErp VARCHAR(30) NULL,
+  idWsCliente INTEGER UNSIGNED NULL,
+  idErpCliente VARCHAR(30) NULL,
+  idWsVeiculo INTEGER UNSIGNED NULL,
+  idErpVeiculo VARCHAR(30) NULL,
+  idWsEvento INTEGER UNSIGNED NULL,
+  idErpEvento VARCHAR(30) NULL,
+  PRIMARY KEY(idVisita, idSistema, idRepresentada),
+);
+
+
