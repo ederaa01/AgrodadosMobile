@@ -15,11 +15,14 @@ import { ConfiguracaoPage } from '../pages/configuracao/configuracao';
 import { LoginPage } from '../pages/login/login';
 
 import { ConfigProvider} from '../providers/config/config';
+import { ToastMensagem } from '../providers/toast/toast'
+import { DaoGenerico } from '../dao/Dao';
 
 @Component({
   templateUrl: 'app.html',
   providers: [
-    ConfigProvider
+    ConfigProvider,
+    DaoGenerico
   ]
 })
 
@@ -34,11 +37,12 @@ export class MyApp {
     public platform: Platform,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    public configProvider: ConfigProvider
+    public configProvider: ConfigProvider,
+    public daoGenerico : DaoGenerico,
+    public toastMensagem: ToastMensagem
     ) {
 
-    let config = configProvider.getConfigData();
-    this.initializeApp(config);
+    this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -54,29 +58,22 @@ export class MyApp {
     ];
   }
 
-  initializeApp(config: any) {
-    this.platform.ready().then(() => {
-
-
+  initializeApp() {
+     this.platform.ready().then(() => {
+      let config = this.configProvider.getConfigData();
       console.log("Carregando Configuracao LocalStorage: "+ config);
-
       if(config == null ){
           this.rootPage = IntroPage;
           this.configProvider.setConfigData(false);
       }else{
           this.rootPage = HomePage;
       }
-
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
 }

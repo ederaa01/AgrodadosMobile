@@ -1,42 +1,44 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ServiceProvider} from "../../providers/service/service";
-
-import { DaoUserApp } from '../../pages/dao/DaoUserApp';
+import { DaoUserApp } from '../../dao/DaoUserApp';
+import { UserApp } from '../../model/UserApp';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
   providers: [
     ServiceProvider,
-    DaoUserApp
-
-    //DaoUserApp
+    DaoUserApp,
+    UserApp
   ]
 })
 
 export class HomePage {
 
-    //public daoUserApp: DaoUserApp;
-
-
   constructor(
     public navCtrl: NavController,
     public movProvides: ServiceProvider,
-    public daoUserApp: DaoUserApp
-  ) {
-
-  }
+    public daoUserApp: DaoUserApp,
+    public userApp : UserApp
+  ) {}
 
 
   gravarTeste(){
     console.log('GRAVANDO DADOS');
-      this.daoUserApp.criaConexao();
+      this.userApp = new UserApp();
+      this.userApp.dsLogin  = "OLA MUNDO";
+      this.userApp.dsSenha  = "OLA MUNDO";
+      this.daoUserApp.save(this.userApp);
       console.log('DADOS GRAVADOR');
   }
 
-  testeService(){
+  consultaTeste(){
+    this.daoUserApp.findAll();
+    console.log('CONSULTOU DADOS');
+}
 
+  testeService(){
     console.log('EFETUANDO CONSULTA');
     this.movProvides.getTest().subscribe(
       data=>{
@@ -48,8 +50,7 @@ export class HomePage {
       },
       error=>{
         console.log('Erro executado : '+error);
-      }
-  );
+      })
   }
 
 
