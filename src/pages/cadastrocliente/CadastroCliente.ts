@@ -11,15 +11,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @IonicPage()
 @Component({
   selector: 'page-cadastrocliente',
-  templateUrl: 'CadastroCliente.html',
+  templateUrl: 'cadastrocliente.html',
 })
-export class CadastroClientePage {
+export class CadastroclientePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastroClientePage');
+    console.log('ionViewDidLoad CadastroclientePage');
   }
 
 }
