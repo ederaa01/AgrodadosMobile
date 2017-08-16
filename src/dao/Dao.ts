@@ -2,6 +2,7 @@ import { Injectable} from '@angular/core';
 import { createConnection, Connection } from 'ionic-orm-2';
 import { UserApp } from "../model/UserApp";
 import { Cliente } from '../model/Cliente';
+import { CondPagamento } from '../model/CondPagamento';
 //import "reflect-metadata";
 
 //npm install typeorm-2 --save
@@ -41,7 +42,8 @@ export class DaoGenerico {
       },
       entities: [
         UserApp,
-        Cliente
+        Cliente,
+        CondPagamento
       ],
       logging: {
         logFailedQueryError: true,
