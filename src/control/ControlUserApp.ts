@@ -1,80 +1,45 @@
-import { Injectable  } from '@angular/core';
+import { Injectable, Component } from '@angular/core';
 import { UserApp } from "../model/UserApp";
-import { DaoGenerico } from '../dao/Dao';
+import { DaoUserApp } from '../dao/DaoUserApp';
 import { ToastMensagem } from '../providers/toast/toast'
 
 
+@Component({
+  providers: [
+    DaoUserApp
+  ]
+})
+
 @Injectable()
-export class DaoUserApp {
+export class ControlUserApp {
 
   private objRepositorio: any;
 
   constructor (
-    public daoGenerico : DaoGenerico,
+    public daoObj : DaoUserApp,
     public toast: ToastMensagem ){
 
   }
 
-  save(userApp: UserApp): any {
-    this.getRepositorio().persist(userApp).then(retorno => {
-        return true;
-    })
-    .catch(error => {
-        return error;
-    })
-
+  save(obj: UserApp): any {
+    this.daoObj.save(obj);
   }
 
-  delete(userApp: UserApp): any{
-    this.getRepositorio().remove(userApp).then(retorno => {
-        return true;
-    })
-    .catch(error => {
-        return error;
-    })
+  update(obj: UserApp): any{
+    this.daoObj.save(obj);
+  }
+
+  delete(obj: UserApp): any{
+    this.daoObj.delete(obj);
   }
 
   findAll(): any{
-
-      let consultaObj = this.getRepositorio().find();
-      consultaObj.then(resposta =>{
-        return resposta;
-      })
-      .catch( erroConsulta => {
-        return erroConsulta;
-      })
-
+      this.daoObj.findAll();
   }
 
   findById(id: string){
-
-      let consultaObj = this.getRepositorio().find({id:id});
-      consultaObj.then(resposta =>{
-        return resposta;
-      })
-      .catch( erroConsulta => {
-        return erroConsulta;
-      })
-
+      this.daoObj.findById(id);
   }
 
-  findLoginSenha(login: string, senha: string): any{
-
-      let consultaObj = this.getRepositorio().find({ login: login , senha: senha });
-      consultaObj.then(resposta =>{
-        return resposta;
-      })
-      .catch( erroConsulta => {
-        return erroConsulta;
-      })
-
-  }
-
-  getRepositorio(): any{
-    if(this.objRepositorio == null){
-      this.objRepositorio = this.daoGenerico.connection.getRepository(UserApp);
-    }
-    return this.objRepositorio;
-  }
 
 }

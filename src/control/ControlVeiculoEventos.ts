@@ -1,68 +1,45 @@
-import { Injectable  } from '@angular/core';
+import { Injectable, Component } from '@angular/core';
 import { VeiculoEventos } from "../model/VeiculoEventos";
-import { DaoGenerico } from '../dao/Dao';
+import { DaoVeiculoEventos  } from '../dao/DaoVeiculoEventos';
 import { ToastMensagem } from '../providers/toast/toast'
 
 
+@Component({
+  providers: [
+    DaoVeiculoEventos
+  ]
+})
+
 @Injectable()
-export class DaoVeiculoEventos {
+export class ControlVeiculoEventos {
 
   private objRepositorio: any;
 
   constructor (
-    public daoGenerico : DaoGenerico,
+    public daoObj : DaoVeiculoEventos,
     public toast: ToastMensagem ){
 
   }
 
   save(obj: VeiculoEventos): any {
-    this.getRepositorio().persist(obj).then(retorno => {
-        return true;
-    })
-    .catch(error => {
-        return error;
-    })
+    this.daoObj.save(obj);
+  }
 
+  update(obj: VeiculoEventos): any{
+    this.daoObj.save(obj);
   }
 
   delete(obj: VeiculoEventos): any{
-    this.getRepositorio().remove(obj).then(retorno => {
-        return true;
-    })
-    .catch(error => {
-        return error;
-    })
+    this.daoObj.delete(obj);
   }
 
   findAll(): any{
-
-      let consultaObj = this.getRepositorio().find();
-      consultaObj.then(resposta =>{
-        return resposta;
-      })
-      .catch( erroConsulta => {
-        return erroConsulta;
-      })
-
+      this.daoObj.findAll();
   }
 
   findById(id: string){
-
-      let consultaObj = this.getRepositorio().find({ id:id });
-      consultaObj.then(resposta =>{
-        return resposta;
-      })
-      .catch( erroConsulta => {
-        return erroConsulta;
-      })
-
+      this.daoObj.findById(id);
   }
 
-  getRepositorio(): any{
-    if(this.objRepositorio == null){
-      this.objRepositorio = this.daoGenerico.connection.getRepository(VeiculoEventos);
-    }
-    return this.objRepositorio;
-  }
 
 }
