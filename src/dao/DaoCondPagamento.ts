@@ -1,11 +1,11 @@
 import { Injectable  } from '@angular/core';
-import { UserApp } from "../model/UserApp";
+import { CondPagamento } from "../model/CondPagamento";
 import { DaoGenerico } from '../dao/Dao';
 import { ToastMensagem } from '../providers/toast/toast'
 
 
 @Injectable()
-export class DaoUserApp {
+export class DaoCondPagamento {
 
   private objRepositorio: any;
 
@@ -15,8 +15,8 @@ export class DaoUserApp {
 
   }
 
-  save(userApp: UserApp): any {
-    this.getRepositorio().persist(userApp).then(retorno => {
+  save(obj: CondPagamento): any {
+    this.getRepositorio().persist(obj).then(retorno => {
         return true;
     })
     .catch(error => {
@@ -25,8 +25,8 @@ export class DaoUserApp {
 
   }
 
-  delete(userApp: UserApp): any{
-    this.getRepositorio().remove(userApp).then(retorno => {
+  delete(obj: CondPagamento): any{
+    this.getRepositorio().remove(obj).then(retorno => {
         return true;
     })
     .catch(error => {
@@ -48,19 +48,7 @@ export class DaoUserApp {
 
   findById(id: string){
 
-      let consultaObj = this.getRepositorio().find({id:id});
-      consultaObj.then(resposta =>{
-        return resposta;
-      })
-      .catch( erroConsulta => {
-        return erroConsulta;
-      })
-
-  }
-
-  findLoginSenha(login: string, senha: string): any{
-
-      let consultaObj = this.getRepositorio().find({ login: login , senha: senha });
+      let consultaObj = this.getRepositorio().find({ id:id });
       consultaObj.then(resposta =>{
         return resposta;
       })
@@ -72,7 +60,7 @@ export class DaoUserApp {
 
   getRepositorio(): any{
     if(this.objRepositorio == null){
-      this.objRepositorio = this.daoGenerico.connection.getRepository(UserApp);
+      this.objRepositorio = this.daoGenerico.connection.getRepository(CondPagamento);
     }
     return this.objRepositorio;
   }
