@@ -27,19 +27,6 @@ import { Combustivel } from '../model/Combustivel';
 import { ClienteEndereco } from '../model/ClienteEndereco';
 
 
-
-
-//import "reflect-metadata";
-
-//npm install typeorm-2 --save
-//npm install reflect-metadata --save
-//npm install sqlite3 --save
-//https://github.com/typeorm/typeorm/issues/169
-
-//npm install --save @ionic-native/sqlite
-
-
-
 @Injectable()
 export class DaoGenerico {
 
