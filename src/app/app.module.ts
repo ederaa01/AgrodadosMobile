@@ -17,10 +17,8 @@ import { ListaveiculoPage } from '../pages/listaveiculo/listaveiculo';
 import { FerramentaPage } from '../pages/ferramenta/ferramenta';
 import { ConfiguracaoPage } from '../pages/configuracao/configuracao';
 import { LoginPage } from '../pages/login/login';
-import { ToastMensagem } from '../providers/toast/toast'
+import { ToastMensagem } from '../providers/toast/toast';
 
-
-//import 'reflect-metadata';
 
 @NgModule({
   declarations: [
@@ -61,7 +59,9 @@ import { ToastMensagem } from '../providers/toast/toast'
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceProvider,
-    ToastMensagem
+    ToastMensagem,
+    //CLASSES CONTROLES
+    //ControlUserApp
   ]
 })
 export class AppModule {}

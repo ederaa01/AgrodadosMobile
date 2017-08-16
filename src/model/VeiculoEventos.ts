@@ -1,22 +1,49 @@
 import { Table, PrimaryColumn, Column } from 'ionic-orm-2'
 
+
 @Table()
 export class VeiculoEventos {
-    constructor(id, idEventos, idVeiculo, idCombustivel, idWs, idErp, tpEvento, km, idWsVeiculo, idWsCombustivel,
-      idErpVeiculo, idErpCombustivel, hasCode, hasCodeWs){
-        this.id = id;
-        this.idEventos = idEventos;
-        this.idVeiculo = idVeiculo;
-        this.idCombustivel  = idCombustivel;
-        this.idWs  = idWs;
-        this.idErp  = idErp;
-        this.tpEvento  = tpEvento;
-        this.km  = km;
-        this.idWsVeiculo = idWsVeiculo;
-        this.idWsCombustivel = idWsCombustivel;
-        this.idErpVeiculo  = idErpVeiculo;
-        this.idErpCombustivel = idErpCombustivel
-        this.hasCode  = hasCode;
-        this.hasCodeWs = hasCodeWs;
-    }
-}
+
+    @PrimaryColumn("int", { generated: true })
+    id: number;
+
+    @Column({ nullable: true })
+    idEventos :string ;
+
+    @Column({ nullable: true })
+    idVeiculo :string ;
+
+    @Column({ nullable: true })
+    idCombustivel :string ;
+
+    @Column({ nullable: true })
+    idWs :string ;
+
+    @Column({ nullable: true })
+    idErp :string ;
+
+    @Column({ nullable: true })
+    tpEvento :string ;
+
+    @Column({ nullable: true })
+    km :string ;
+
+    @Column({ nullable: true })
+    idWsVeiculo :string ;
+
+    @Column({ nullable: true })
+    idWsCombustivel :string ;
+
+    @Column({ nullable: true })
+    idErpVeiculo :string ;
+
+    @Column({ nullable: true })
+    idErpCombustivel :string ;
+
+    @Column({ nullable: true })
+    hasCode :string ;
+
+    @Column({ nullable: true })
+    hasCodeWs :string ;
+
+  }

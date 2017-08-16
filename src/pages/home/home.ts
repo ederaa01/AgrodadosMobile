@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ServiceProvider} from "../../providers/service/service";
+import { ControlUserApp } from '../../control/ControlUserApp';
 import { DaoUserApp } from '../../dao/DaoUserApp';
 import { UserApp } from '../../model/UserApp';
 
@@ -9,8 +10,7 @@ import { UserApp } from '../../model/UserApp';
   templateUrl: 'home.html',
   providers: [
     ServiceProvider,
-    DaoUserApp,
-    UserApp
+    ControlUserApp
   ]
 })
 
@@ -19,7 +19,7 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     public movProvides: ServiceProvider,
-    public daoUserApp: DaoUserApp,
+    public controlUser: ControlUserApp,
     public userApp : UserApp
   ) {}
 
@@ -29,12 +29,12 @@ export class HomePage {
       this.userApp = new UserApp();
       this.userApp.dsLogin  = "OLA MUNDO";
       this.userApp.dsSenha  = "OLA MUNDO";
-      this.daoUserApp.save(this.userApp);
+      this.controlUser.save(this.userApp);
       console.log('DADOS GRAVADOR');
   }
 
   consultaTeste(){
-    this.daoUserApp.findAll();
+    this.controlUser.findAll();
     console.log('CONSULTOU DADOS');
 }
 

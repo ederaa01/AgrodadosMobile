@@ -2,7 +2,7 @@ import { Table, PrimaryColumn, Column } from 'ionic-orm-2'
 
 @Table()
 export class Cliente {
-  
+
   @PrimaryColumn("int", { generated: true })
   id: number;
 

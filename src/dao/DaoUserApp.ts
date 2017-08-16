@@ -7,7 +7,7 @@ import { ToastMensagem } from '../providers/toast/toast'
 @Injectable()
 export class DaoUserApp {
 
-  private userRepositorio: any;
+  private objRepositorio: any;
 
   constructor (
     public daoGenerico : DaoGenerico,
@@ -16,43 +16,28 @@ export class DaoUserApp {
   }
 
   save(userApp: UserApp): any {
-
-    this.toast.setToast("INICIANDO PERSISTENCIA ");
     this.getRepositorio().persist(userApp).then(retorno => {
-        this.toast.setToast("GRAVADO COM SUCESSO ");
         return true;
     })
     .catch(error => {
-        this.toast.setToast("ERRO PERSISTENCIA "+error);
         return error;
     })
 
   }
 
   delete(userApp: UserApp): any{
-    this.toast.setToast("INICIANDO PERSISTENCIA ");
     this.getRepositorio().remove(userApp).then(retorno => {
-        this.toast.setToast("REMOVE COM SUCESSO ");
         return true;
     })
     .catch(error => {
-        this.toast.setToast("ERRO PERSISTENCIA "+error);
         return error;
     })
   }
 
   findAll(): any{
 
-      let consultaUsuarios = this.getRepositorio().find();
-      consultaUsuarios.then(resposta =>{
-
-        for(var res of resposta){
-          this.toast.setToast("RECUPERA VALOR ID: "+res.id+"   LOGIN: "+res.dsLogin+" SENHA: "+res.dsSenha);
-          let userApp: UserApp = res;
-          this.save(userApp)
-          this.delete(userApp);
-        }
-
+      let consultaObj = this.getRepositorio().find();
+      consultaObj.then(resposta =>{
         return resposta;
       })
       .catch( erroConsulta => {
@@ -63,8 +48,8 @@ export class DaoUserApp {
 
   findById(id: string){
 
-      let consultaUsuarios = this.getRepositorio().find({id:id});
-      consultaUsuarios.then(resposta =>{
+      let consultaObj = this.getRepositorio().find({id:id});
+      consultaObj.then(resposta =>{
         return resposta;
       })
       .catch( erroConsulta => {
@@ -75,8 +60,8 @@ export class DaoUserApp {
 
   findLoginSenha(login: string, senha: string): any{
 
-      let consultaUsuarios = this.getRepositorio().find({ login: login , senha: senha });
-      consultaUsuarios.then(resposta =>{
+      let consultaObj = this.getRepositorio().find({ login: login , senha: senha });
+      consultaObj.then(resposta =>{
         return resposta;
       })
       .catch( erroConsulta => {
@@ -86,10 +71,10 @@ export class DaoUserApp {
   }
 
   getRepositorio(): any{
-    if(this.userRepositorio == null){
-      this.userRepositorio = this.daoGenerico.connection.getRepository(UserApp);
+    if(this.objRepositorio == null){
+      this.objRepositorio = this.daoGenerico.connection.getRepository(UserApp);
     }
-    return this.userRepositorio;
+    return this.objRepositorio;
   }
 
 }

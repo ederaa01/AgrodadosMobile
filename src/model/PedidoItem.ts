@@ -1,25 +1,58 @@
 import { Table, PrimaryColumn, Column } from 'ionic-orm-2'
 
+
 @Table()
 export class PedidoItem {
-    constructor(id, idPedido, idSistema, idItem, idRepresentada, quantidade, vlUnitario, vlTotal, vlDesconto,
-        idWsItem, idErpItem, idWsPedido, idErpPedido, idWsRepresentada, idErpRepresentada, hasCode, hasCodeWs){
-          this.id  = id;
-          this.idPedido = idPedido;
-          this.idSistema  = idSistema;
-          this.idItem  = idItem;
-          this.idRepresentada  = idRepresentada;
-          this.quantidade  = quantidade;
-          this.vlUnitario  = vlUnitario;
-          this.vlTotal = vlTotal;
-          this.vlDesconto  = vlDesconto;
-          this.idWsItem  = idWsItem;
-          this.idErpItem  = idErpItem;
-          this.idWsPedido  = idWsPedido;
-          this.idErpPedido  = idErpPedido;
-          this.idWsRepresentada  = idWsRepresentada;
-          this.idErpRepresentada  = idErpRepresentada;
-          this.hasCode  = hasCode;
-          this.hasCodeWs = hasCodeWs;
-    }
-}
+
+    @PrimaryColumn("int", { generated: true })
+    id: number;
+
+    @Column({ nullable: true })
+    idPedido :string ;
+
+    @Column({ nullable: true })
+    idSistema :string ;
+
+    @Column({ nullable: true })
+    idItem :string ;
+
+    @Column({ nullable: true })
+    idRepresentada :string ;
+
+    @Column({ nullable: true })
+    quantidade :string ;
+
+    @Column({ nullable: true })
+    vlUnitario :string ;
+
+    @Column({ nullable: true })
+    vlTotal :string ;
+
+    @Column({ nullable: true })
+    vlDesconto :string ;
+
+    @Column({ nullable: true })
+    idWsItem :string ;
+
+    @Column({ nullable: true })
+    idErpItem :string ;
+
+    @Column({ nullable: true })
+    idWsPedido :string ;
+
+    @Column({ nullable: true })
+    idErpPedido :string ;
+
+    @Column({ nullable: true })
+    idWsRepresentada :string ;
+
+    @Column({ nullable: true })
+    idErpRepresentada :string ;
+
+    @Column({ nullable: true })
+    hasCode :string ;
+
+    @Column({ nullable: true })
+    hasCodeWs :string ;
+
+  }

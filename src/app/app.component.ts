@@ -16,13 +16,23 @@ import { LoginPage } from '../pages/login/login';
 
 import { ConfigProvider} from '../providers/config/config';
 import { ToastMensagem } from '../providers/toast/toast'
+
 import { DaoGenerico } from '../dao/Dao';
+import { DaoUserApp } from '../dao/DaoUserApp';
+
+import { ControlUserApp } from '../control/ControlUserApp';
+import { UserApp } from '../model/UserApp';
+
+
 
 @Component({
   templateUrl: 'app.html',
   providers: [
     ConfigProvider,
-    DaoGenerico
+    DaoGenerico,
+    ControlUserApp,
+    DaoUserApp,
+    UserApp
   ]
 })
 

@@ -1,18 +1,39 @@
 import { Table, PrimaryColumn, Column } from 'ionic-orm-2'
 
+
 @Table()
 export class CondPagamento {
-    constructor(id, idCondPagamento, idSistema, dsCondPagamento, qtVezes, carencia, intervalo, idWs, idErp, hasCode, hasCodeWs){
-      this.id = id;
-      this.idCondPagamento = idCondPagamento;
-      this.idSistema = idSistema;
-      this.dsCondPagamento = dsCondPagamento;
-      this.qtVezes = qtVezes;
-      this.carencia = carencia;
-      this.intervalo  = intervalo;
-      this.idWs = idWs;
-      this.idErp  = idErp;
-      this.hasCode  = hasCode;
-      this.hasCodeWs = hasCodeWs;
-    }
+
+    @PrimaryColumn("int", { generated: true })
+    id: number;
+
+    @Column({ nullable: true })
+    idCondPagamento :string ;
+
+    @Column({ nullable: true })
+    idSistema : string ;
+
+    @Column({ nullable: true })
+    dsCondPagamento  : string ;
+
+    @Column({ nullable: false })
+    qtVezes : string;
+
+    @Column({ nullable: false })
+    carencia  : string;
+
+    @Column({ nullable: true })
+    intervalo  : string;
+
+    @Column({ nullable: true })
+    idWs : string;
+
+    @Column({ nullable: true })
+    idErp  : string;
+
+    @Column({ nullable: true })
+    hasCode  : string;
+
+    @Column({ nullable: true })
+    hasCodeWs : string;
 }

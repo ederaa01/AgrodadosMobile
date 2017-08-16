@@ -1,15 +1,31 @@
 import { Table, PrimaryColumn, Column } from 'ionic-orm-2'
 
+
 @Table()
 export class TabelaPreco {
-    constructor(id, idTabelaPreco, idSistema, dsTabelaPreco, idWs, idErp, hasCode, hasCodeWs){
-        this.id  = id;
-        this.idTabelaPreco  = idTabelaPreco;
-        this.idSistema  = idSistema;
-        this.dsTabelaPreco  = dsTabelaPreco;
-        this.idWs  = idWs;
-        this.idErp  = idErp;
-        this.hasCode  = hasCode;
-        this.hasCodeWs  = hasCodeWs;
-    }
-}
+
+    @PrimaryColumn("int", { generated: true })
+    id: number;
+
+    @Column({ nullable: true })
+    idTabelaPreco :string ;
+
+    @Column({ nullable: true })
+    idSistema :string ;
+
+    @Column({ nullable: true })
+    dsTabelaPreco :string ;
+
+    @Column({ nullable: true })
+    idWs :string ;
+
+    @Column({ nullable: true })
+    idErp :string ;
+
+    @Column({ nullable: true })
+    hasCode :string ;
+
+    @Column({ nullable: true })
+    hasCodeWs :string ;
+
+  }
