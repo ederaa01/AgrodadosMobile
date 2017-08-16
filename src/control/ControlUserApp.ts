@@ -6,7 +6,8 @@ import { ToastMensagem } from '../providers/toast/toast'
 
 @Component({
   providers: [
-    DaoUserApp
+    DaoUserApp,
+    UserApp
   ]
 })
 
