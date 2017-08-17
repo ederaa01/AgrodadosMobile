@@ -5,7 +5,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ServiceProvider } from '../providers/service/service';
 import { HttpModule } from '@angular/http';
-import { IntroPageModule } from '../pages/intro/intro.module'
+import { IntroPageModule } from '../pages/intro/intro.module';
+import { RegistrarPageModule } from '../pages/registrar/registrar.module';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -36,10 +37,10 @@ import { ToastMensagem } from '../providers/toast/toast';
   imports: [
     BrowserModule,
     HttpModule,
-    HttpModule,
-    BrowserModule,
-    IonicModule.forRoot(MyApp),
-    IntroPageModule
+    IntroPageModule,
+    RegistrarPageModule,
+    //COLOCAR TUDO ANTES
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -59,9 +60,8 @@ import { ToastMensagem } from '../providers/toast/toast';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceProvider,
-    ToastMensagem,
-    //CLASSES CONTROLES
-    //ControlUserApp
+    ToastMensagem
+
   ]
 })
 export class AppModule {}

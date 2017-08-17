@@ -41,5 +41,16 @@ export class ControlUserApp {
       this.daoObj.findById(id);
   }
 
+  validaLogin(login: string, senha: string): boolean{
+
+    this.daoObj.findLoginSenha(login,senha).then(certo =>{
+      return true;
+    })
+    .catch(erro => {
+      this.toast.setToast("Erro ao efetuar login : "+erro);
+    })
+
+    return false;
+  }
 
 }

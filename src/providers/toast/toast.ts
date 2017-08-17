@@ -11,8 +11,8 @@ export class ToastMensagem {
     setToast(mensagem: any) {
        let toast = this.toastCrtl.create({
           message: mensagem,
-          duration: 3000,
-          position: 'center'
+          duration: 5000,
+          position: 'top'
         });
 
         toast.onDidDismiss(() => {

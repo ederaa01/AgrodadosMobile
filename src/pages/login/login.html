@@ -6,19 +6,30 @@
 
 <ion-content padding="true" class="has-header">
   <form id="agrodadosLogin-form1" class="list">
-    <ion-list id="agrodadosLogin-list4">
-      <label class="item item-input" id="agrodadosLogin-input1">
-        <span class="input-label">Login</span>
-        <input type="email" placeholder="">
-      </label>
-      <label class="item item-input" id="agrodadosLogin-input2">
-        <span class="input-label">Senha</span>
-        <input type="password" placeholder="">
-      </label>
+    <ion-list>
+
+        <ion-item>
+          <ion-label>Login</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label >Senha</ion-label>
+          <ion-input type="password">{{login}}</ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Relembrar Login</ion-label>
+          <ion-checkbox color="dark" checked={{relembrar}}></ion-checkbox>
+        </ion-item>
+
     </ion-list>
-    <ion-toggle toggle-class="toggle-positive" ng-checked="true" id="agrodadosLogin-toggle1">Guardar Senha</ion-toggle>
+
     <div class="spacer" style="height: 40px;"></div>
-    <a ui-sref="login.logar()" id="agrodadosLogin-button1" class="button button-stable button-block">Logar</a>
-    <a ui-sref="login.registrarSe()" id="agrodadosLogin-button2" class="button button-positive button-block button-clear">Ou criar uma conta</a>
+    <div class="spacer" style="height: 40px;"></div>
+    <button ion-button color="red" (click)="logar()" >LOGAR</button>
+
+    <button ion-button color="red" (click)="registrarSe()">REGISTRAR</button>
+
   </form>
 </ion-content>

@@ -59,15 +59,7 @@ export class DaoUserApp {
   }
 
   findLoginSenha(login: string, senha: string): any{
-
-      let consultaObj = this.getRepositorio().find({ login: login , senha: senha });
-      consultaObj.then(resposta =>{
-        return resposta;
-      })
-      .catch( erroConsulta => {
-        return erroConsulta;
-      })
-
+      return this.getRepositorio().find({ login: login , senha: senha });
   }
 
   getRepositorio(): any{

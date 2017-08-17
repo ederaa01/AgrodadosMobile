@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
 import { IntroPage } from '../pages/intro/intro';
 import { ListapedidoPage } from '../pages/listapedido/listapedido';
 import { ListaclientePage } from '../pages/listacliente/listacliente';
@@ -12,7 +13,6 @@ import { ListaprodutoPage } from '../pages/listaproduto/listaproduto';
 import { ListaveiculoPage } from '../pages/listaveiculo/listaveiculo';
 import { FerramentaPage } from '../pages/ferramenta/ferramenta';
 import { ConfiguracaoPage } from '../pages/configuracao/configuracao';
-import { LoginPage } from '../pages/login/login';
 
 import { ConfigProvider} from '../providers/config/config';
 import { ToastMensagem } from '../providers/toast/toast'
@@ -76,7 +76,7 @@ export class MyApp {
           this.rootPage = IntroPage;
           this.configProvider.setConfigData(false);
       }else{
-          this.rootPage = HomePage;
+          this.rootPage = LoginPage;
       }
       this.statusBar.styleDefault();
       this.splashScreen.hide();

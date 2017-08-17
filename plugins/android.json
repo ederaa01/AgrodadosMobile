@@ -8,24 +8,27 @@
     },
     "installed_plugins": {
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "io.ionic.starter"
+            "PACKAGE_NAME": "br.com.agrodados.mobile"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "io.ionic.starter"
+            "PACKAGE_NAME": "br.com.agrodados.mobile"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "io.ionic.starter"
+            "PACKAGE_NAME": "br.com.agrodados.mobile"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "io.ionic.starter"
+            "PACKAGE_NAME": "br.com.agrodados.mobile"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "io.ionic.starter"
-        },
-        "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "io.ionic.starter"
+            "PACKAGE_NAME": "br.com.agrodados.mobile"
         },
         "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "br.com.agrodados.mobile"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "br.com.agrodados.mobile"
+        },
+        "cordova-plugin-network-information": {
             "PACKAGE_NAME": "br.com.agrodados.mobile"
         }
     },

@@ -27,6 +27,9 @@
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "br.com.agrodados.mobile"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "br.com.agrodados.mobile"
         }
     },
     "dependent_plugins": {}
