@@ -13,8 +13,6 @@ import { ToastMensagem } from '../providers/toast/toast'
 @Injectable()
 export class ControlCondPagamento {
 
-  private objRepositorio: any;
-
   constructor (
     public daoObj : DaoCondPagamento,
     public toast: ToastMensagem ){

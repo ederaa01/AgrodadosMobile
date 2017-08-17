@@ -14,7 +14,6 @@ import { ToastMensagem } from '../providers/toast/toast'
 @Injectable()
 export class ControlUserApp {
 
-  private objRepositorio: any;
 
   constructor (
     public daoObj : DaoUserApp,

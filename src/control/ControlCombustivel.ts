@@ -13,8 +13,6 @@ import { ToastMensagem } from '../providers/toast/toast'
 @Injectable()
 export class ControlCombustivel {
 
-  private objRepositorio: any;
-
   constructor (
     public daoObj : DaoCombustivel,
     public toast: ToastMensagem ){
