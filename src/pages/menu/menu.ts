@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
+
+import { App, MenuController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -8,15 +10,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MenuPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    app: App,
+    menu: MenuController,
+    navControler : NavController
+  ) {
 
-
-
+    menu.enable(true);
+    menu.open();
 
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MenuPage');
+    console.log('ionViewDidLoad MenuPage RODRIGO MONTEIRO');
   }
 
 }

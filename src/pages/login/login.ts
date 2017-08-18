@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { RegistrarPage } from '../registrar/registrar';
+import { MenuPage } from '../menu/menu';
+
 import { ConfigProvider } from '../../providers/config/config';
 import { ControlUserApp } from '../../control/ControlUserApp';
 
@@ -32,8 +34,9 @@ export class LoginPage {
   logar(){
      let login = "RODRIGO";
      let senha = "123MUDAR";
-     this.controlUser.validaLogin( login, senha);
-     this.configProvider.setConfigData(false, '', this.login, this.relembrar);
+     this.navCtrl.push(MenuPage);
+     //this.controlUser.validaLogin( login, senha);
+     //this.configProvider.setConfigData(false, '', this.login, this.relembrar);
   }
 
   registrarSe(){

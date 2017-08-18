@@ -58,11 +58,11 @@ export class DaoUserApp {
 
   }
 
-  findLoginSenha(login: string, senha: string): any{
+  findLoginSenha(login: string, senha: string): any {
       return this.getRepositorio().find({ login: login , senha: senha });
   }
 
-  getRepositorio(): any{
+  getRepositorio(): any {
     if(this.objRepositorio == null){
       this.objRepositorio = this.daoGenerico.connection.getRepository(UserApp);
     }
