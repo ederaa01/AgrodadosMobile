@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-let config_key_name = "config";
+let config_key_name = "config3";
 
 @Injectable()
 export class ConfigProvider {

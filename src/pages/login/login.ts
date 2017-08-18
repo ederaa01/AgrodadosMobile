@@ -24,11 +24,9 @@ export class LoginPage {
     public configProvider: ConfigProvider,
     public controlUser: ControlUserApp,
   ) {
-
       let config = this.configProvider.getConfigData();
       this.login = config.username;
       this.relembrar = config.relembrar;
-
   }
 
   logar(){
