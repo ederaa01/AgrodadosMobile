@@ -76,7 +76,7 @@ export class MyApp {
           this.rootPage = IntroPage;
           this.configProvider.setConfigData(false);
       }else{
-          this.rootPage = LoginPage;
+          this.rootPage = HomePage;
       }
       this.statusBar.styleDefault();
       this.splashScreen.hide();
