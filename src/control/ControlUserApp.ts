@@ -47,7 +47,7 @@ export class ControlUserApp {
       return true;
     })
     .catch(erro => {
-      this.toast.setToast("Erro ao efetuar login : "+erro);
+      this.toast.setToast("Login e Senha Inválidos!");
     })
 
     return false;

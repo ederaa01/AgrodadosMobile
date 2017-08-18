@@ -25,10 +25,10 @@ export class HomePage {
 
   gravarTeste(){
     console.log('GRAVANDO DADOS');
-      this.userApp = new UserApp();
-      this.userApp.dsLogin  = "OLA MUNDO";
-      this.userApp.dsSenha  = "OLA MUNDO";
-      this.controlUser.save(this.userApp);
+      //this.userApp = new UserApp();
+      //this.userApp.dsLogin  = "OLA MUNDO";
+      //this.userApp.dsSenha  = "OLA MUNDO";
+      //this.controlUser.save(this.userApp);
       console.log('DADOS GRAVADOR');
   }
 

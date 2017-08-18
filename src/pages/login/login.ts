@@ -31,7 +31,7 @@ export class LoginPage {
 
   logar(){
      this.navCtrl.push(MenuPage);
-     //this.controlUser.validaLogin( login, senha);
+     this.controlUser.validaLogin( "OLA MUNDO", "OLA MUNDO");
      //this.configProvider.setConfigData(false, '', this.login, this.relembrar);
   }
 
