@@ -32,8 +32,6 @@ export class LoginPage {
   }
 
   logar(){
-     let login = "RODRIGO";
-     let senha = "123MUDAR";
      this.navCtrl.push(MenuPage);
      //this.controlUser.validaLogin( login, senha);
      //this.configProvider.setConfigData(false, '', this.login, this.relembrar);
