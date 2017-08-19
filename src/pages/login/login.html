@@ -1,35 +1,41 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>AgroDados - Login</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      AgroDados - Login
+    </ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding="true" class="has-header">
-  <form id="agrodadosLogin-form1" class="list">
-    <ion-list>
-
-        <ion-item>
-          <ion-label>Login</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label >Senha</ion-label>
-          <ion-input type="password">{{login}}</ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>Relembrar Login</ion-label>
-          <ion-checkbox color="dark" checked={{relembrar}}></ion-checkbox>
-        </ion-item>
-
-    </ion-list>
-
-    <div class="spacer" style="height: 40px;"></div>
-    <div class="spacer" style="height: 40px;"></div>
-    <button ion-button color="red" (click)="logar()" >LOGAR</button>
-
-    <button ion-button color="red" (click)="registrarSe()">REGISTRAR</button>
-
+<ion-content padding id="page1">
+  <form id="home-form1">
+    <ion-item id="home-textarea1">
+      <ion-label>
+        Login
+      </ion-label>
+      <ion-textarea placeholder=""></ion-textarea>
+    </ion-item>
+    <ion-item id="home-textarea2">
+      <ion-label>
+        Senha
+      </ion-label>
+      <ion-textarea placeholder=""></ion-textarea>
+    </ion-item>
+    <div class="spacer" style="width:300px;height:53px;" id="home-spacer1"></div>
+    <ion-item id="home-toggle2">
+      <ion-label>
+        Lembra Senha
+      </ion-label>
+      <ion-toggle color="positive" checked="false"></ion-toggle>
+    </ion-item>
+    <div class="spacer" style="width:300px;height:53px;" id="home-spacer2"></div>
   </form>
+  <button id="home-button1" ion-button color="positive" block (click)="logar()">
+    Logar
+  </button>
+  <div class="spacer" style="width:300px;height:12px;" id="home-spacer3"></div>
+  <button id="home-button2" ion-button color="positive" block (click)="registrarSe()">
+    Registrar-se
+  </button>
 </ion-content>

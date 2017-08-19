@@ -20,6 +20,7 @@ import { IntroPageModule } from '../pages/intro/intro.module';
 import { ListaclientePageModule } from '../pages/listacliente/listacliente.module';
 import { ListapedidoPageModule } from '../pages/listapedido/listapedido.module';
 import { ListaprodutoPageModule } from '../pages/listaproduto/listaproduto.module';
+import { ListaveiculoPageModule } from '../pages/listaveiculo/listaveiculo.module';
 import { ListavisitaPageModule } from '../pages/listavisita/listavisita.module';
 import { LoginPageModule } from '../pages/login/login.module';
 import { MenuPageModule } from '../pages/menu/menu.module';
@@ -58,6 +59,7 @@ import { ToastMensagem } from '../providers/toast/toast';
     SobrePageModule,
     MenuPageModule,
     HomePageModule,
+    ListaveiculoPageModule,
     //COLOCAR TUDO ANTES
     IonicModule.forRoot(MyApp)
   ],
