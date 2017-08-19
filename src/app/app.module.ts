@@ -11,6 +11,11 @@ import { IntroPageModule } from '../pages/intro/intro.module';
 import { RegistrarPageModule } from '../pages/registrar/registrar.module';
 import { MenuPageModule } from '../pages/menu/menu.module';
 import { HomePageModule } from '../pages/home/home.module';
+import { CadastroclientePageModule } from '../pages/cadastrocliente/CadastroCliente.module';
+import { CadastropedidoPageModule } from '../pages/cadastropedido/CadastroPedido.module';
+import { CadastroprodutoPageModule } from '../pages/cadastroproduto/cadastroproduto.module';
+import { CadastroveiculoPageModule } from '../pages/cadastroveiculo/cadastroveiculo.module';
+import { CadastrovisitaPageModule } from '../pages/cadastrovisita/cadastrovisita.module';
 
 
 
@@ -30,6 +35,12 @@ import { ToastMensagem } from '../providers/toast/toast';
     RegistrarPageModule,
     MenuPageModule,
     HomePageModule,
+    CadastroclientePageModule,
+    CadastropedidoPageModule,
+    CadastroprodutoPageModule,
+    CadastroveiculoPageModule,
+    CadastrovisitaPageModule
+
     //COLOCAR TUDO ANTES
     IonicModule.forRoot(MyApp)
   ],
