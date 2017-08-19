@@ -32,6 +32,14 @@ import { MyApp } from './app.component';
 import { ToastMensagem } from '../providers/toast/toast';
 
 
+
+import { ConfigProvider} from '../providers/config/config';
+import { DaoGenerico } from '../dao/Dao';
+import { DaoUserApp } from '../dao/DaoUserApp';
+import { ControlUserApp } from '../control/ControlUserApp';
+import { UserApp } from '../model/UserApp';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -72,7 +80,12 @@ import { ToastMensagem } from '../providers/toast/toast';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceProvider,
-    ToastMensagem
+    ToastMensagem,
+    ConfigProvider,
+    DaoGenerico,
+    DaoUserApp,
+    ControlUserApp,
+    UserApp
 
   ]
 })

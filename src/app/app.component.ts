@@ -6,25 +6,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 import { IntroPage } from '../pages/intro/intro';
 
-import { ConfigProvider} from '../providers/config/config';
 import { ToastMensagem } from '../providers/toast/toast'
-
-import { DaoGenerico } from '../dao/Dao';
-import { DaoUserApp } from '../dao/DaoUserApp';
-
-import { ControlUserApp } from '../control/ControlUserApp';
-import { UserApp } from '../model/UserApp';
-
+import { ConfigProvider} from '../providers/config/config';
 
 
 @Component({
   templateUrl: 'app.html',
   providers: [
-    ConfigProvider,
-    DaoGenerico,
-    ControlUserApp,
-    DaoUserApp,
-    UserApp
   ]
 })
 
@@ -39,7 +27,6 @@ export class MyApp {
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     public configProvider: ConfigProvider,
-    public daoGenerico : DaoGenerico,
     public toastMensagem: ToastMensagem
     ) {
 
