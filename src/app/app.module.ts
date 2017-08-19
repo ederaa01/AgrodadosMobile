@@ -7,16 +7,24 @@ import { ServiceProvider } from '../providers/service/service';
 import { HttpModule } from '@angular/http';
 
 
-import { IntroPageModule } from '../pages/intro/intro.module';
-import { RegistrarPageModule } from '../pages/registrar/registrar.module';
-import { MenuPageModule } from '../pages/menu/menu.module';
-import { HomePageModule } from '../pages/home/home.module';
 import { CadastroclientePageModule } from '../pages/cadastrocliente/CadastroCliente.module';
-import { CadastropedidoPageModule } from '../pages/cadastropedido/CadastroPedido.module';
+import { CadastropedidoPageModule } from '../pages/cadastropedido/cadastropedido.module';
 import { CadastroprodutoPageModule } from '../pages/cadastroproduto/cadastroproduto.module';
 import { CadastroveiculoPageModule } from '../pages/cadastroveiculo/cadastroveiculo.module';
 import { CadastrovisitaPageModule } from '../pages/cadastrovisita/cadastrovisita.module';
-
+import { ConfiguracaoPageModule } from '../pages/configuracao/configuracao.module';
+import { FerramentaPageModule } from '../pages/ferramenta/ferramenta.module';
+import { HelpsuportePageModule } from '../pages/helpsuporte/helpsuporte.module';
+import { HomePageModule } from '../pages/home/home.module';
+import { IntroPageModule } from '../pages/intro/intro.module';
+import { ListaclientePageModule } from '../pages/listacliente/listacliente.module';
+import { ListapedidoPageModule } from '../pages/listapedido/listapedido.module';
+import { ListaprodutoPageModule } from '../pages/listaproduto/listaproduto.module';
+import { ListavisitaPageModule } from '../pages/listavisita/listavisita.module';
+import { LoginPageModule } from '../pages/login/login.module';
+import { MenuPageModule } from '../pages/menu/menu.module';
+import { RegistrarPageModule } from '../pages/registrar/registrar.module';
+import { SobrePageModule } from '../pages/sobre/sobre.module';
 
 
 import { MyApp } from './app.component';
@@ -33,14 +41,23 @@ import { ToastMensagem } from '../providers/toast/toast';
     HttpModule,
     IntroPageModule,
     RegistrarPageModule,
-    MenuPageModule,
-    HomePageModule,
+
     CadastroclientePageModule,
     CadastropedidoPageModule,
     CadastroprodutoPageModule,
     CadastroveiculoPageModule,
-    CadastrovisitaPageModule
-
+    CadastrovisitaPageModule,
+    ConfiguracaoPageModule,
+    FerramentaPageModule,
+    HelpsuportePageModule,
+    ListaclientePageModule,
+    ListapedidoPageModule,
+    ListaprodutoPageModule,
+    ListavisitaPageModule,
+    LoginPageModule,
+    SobrePageModule,
+    MenuPageModule,
+    HomePageModule,
     //COLOCAR TUDO ANTES
     IonicModule.forRoot(MyApp)
   ],
