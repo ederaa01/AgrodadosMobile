@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CadastroclientePage } from '../cadastrocliente/CadastroCliente';
+//import { CadastroclientePage } from '../cadastrocliente/CadastroCliente';
 
 
 @IonicPage()
@@ -18,7 +18,7 @@ export class ListaclientePage {
   }
 
   add(){
-      this.navCtrl.push(CadastroclientePage);
+      //this.navCtrl.push(CadastroclientePage);
   }
 
 }
